@@ -1,0 +1,20 @@
+\documentclass{standalone}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pstricks}
+\usepackage{auto-pst-pdf}
+\usepackage{multido}
+
+\begin{document}
+	\begin{pspicture}(8, 8)
+		\multido{\iA=0+2, \iB=1+2, \iC=2+2}{4}
+		{
+			\multido{\ia=0+2, \ib=1+2, \ic=2+2}{4}
+			{
+				\pspolygon*(\iA,\ia)(\iA,\ib)(\iB,\ib)(\iB,\ia)
+				\pspolygon*(\iB,\ib)(\iB,\ic)(\iC,\ic)(\iC,\ib)
+			}
+		}
+	\end{pspicture}
+\end{document}
